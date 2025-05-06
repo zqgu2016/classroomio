@@ -45,6 +45,11 @@ export const config = {
       locale: 'es',
       key: '',
       loader: async () => (await import('../translations/es.json')).default
+    },
+    {
+      locale: 'zh',
+      key: '',
+      loader: async () => (await import('../translations/zh.json')).default
     }
   ]
 };

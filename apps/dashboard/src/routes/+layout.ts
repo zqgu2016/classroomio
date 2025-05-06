@@ -24,5 +24,5 @@ function getInitialLocale(lang: string): string {
 
   if (SUPPORTED_LANGUAGES.includes(locale)) return locale;
 
-  return 'en';
+  return 'zh';
 }

@@ -29,16 +29,14 @@
 
   const options = [
     {
-      title: 'Live Class',
-      subtitle:
-        'This course type is ideal for bootcamps where lessons are time based and you need attendance and grading',
+      title: '直播课程',
+      subtitle: '这种课程类型非常适合以时间为基础、需要考勤和评分的训练营。',
       type: COURSE_TYPE.LIVE_CLASS,
       isDisabled: false
     },
     {
-      title: 'Self Paced',
-      subtitle:
-        'This course type is ideal for courses where students can take lessons on their own pace without a teacher',
+      title: '自学课程',
+      subtitle: '这种课程类型非常适合学生可以自主安排进度、无需老师的课程。',
       type: COURSE_TYPE.SELF_PACED,
       isDisabled: false
     }

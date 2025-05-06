@@ -1,23 +1,23 @@
 <script lang="ts">
-  import { env } from '$env/dynamic/public';
   import { goto } from '$app/navigation';
-  import { Dropdown } from 'carbon-components-svelte';
+  import { env } from '$env/dynamic/public';
   import TextField from '$lib/components/Form/TextField.svelte';
   import UserProfileIcon from '$lib/components/Icons/UserProfileIcon.svelte';
-  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import { VARIANTS } from '$lib/components/PrimaryButton/constants';
-  import { profile } from '$lib/utils/store/user';
-  import { onboardingValidation } from '$lib/utils/functions/validator';
-  import { supabase } from '$lib/utils/functions/supabase';
+  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import { blockedSubdomain } from '$lib/utils/constants/app';
-  import { getOrganizations } from '$lib/utils/services/org';
   import { generateSitename } from '$lib/utils/functions/org';
-  import {
-    triggerSendEmail,
-    NOTIFICATION_NAME
-  } from '$lib/utils/services/notification/notification';
+  import { supabase } from '$lib/utils/functions/supabase';
   import { handleLocaleChange, t } from '$lib/utils/functions/translations';
+  import { onboardingValidation } from '$lib/utils/functions/validator';
+  import {
+    NOTIFICATION_NAME,
+    triggerSendEmail
+  } from '$lib/utils/services/notification/notification';
+  import { getOrganizations } from '$lib/utils/services/org';
+  import { profile } from '$lib/utils/store/user';
   import { LOCALE } from '$lib/utils/types';
+  import { Dropdown } from 'carbon-components-svelte';
 
   interface OnboardingField {
     fullname?: string;
@@ -56,7 +56,8 @@
     { id: 'de', text: 'German' },
     { id: 'vi', text: 'Vietnamese' },
     { id: 'ru', text: 'Russian' },
-    { id: 'es', text: 'Spanish' }
+    { id: 'es', text: 'Spanish' },
+    { id: 'zh', text: 'Chinese' }
   ];
 
   const educatorGoals: Goal[] = [

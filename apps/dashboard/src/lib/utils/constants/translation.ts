@@ -8,7 +8,8 @@ export const LANGUAGE = {
   [LOCALE.DE]: 'German',
   [LOCALE.VI]: 'Vietnamese',
   [LOCALE.RU]: 'Russian',
-  [LOCALE.ES]: 'Spanish'
+  [LOCALE.ES]: 'Spanish',
+  [LOCALE.ZH]: 'Chinese'
 };
 
 export const LANGUAGES = Object.keys(LANGUAGE).map((lang) => ({

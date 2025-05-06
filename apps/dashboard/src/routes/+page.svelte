@@ -1,12 +1,12 @@
 <script>
-  import { onMount } from 'svelte';
-  import FlowStreamReferenceIcon from 'carbon-icons-svelte/lib/FlowStreamReference.svelte';
-  import ChartClusterBarIcon from 'carbon-icons-svelte/lib/ChartClusterBar.svelte';
-  import MachineLearningModelIcon from 'carbon-icons-svelte/lib/MachineLearningModel.svelte';
   import TextField from '$lib/components/Form/TextField.svelte';
   import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import { getSupabase } from '$lib/utils/functions/supabase';
   import { validateEmail } from '$lib/utils/functions/validateEmail';
+  import ChartClusterBarIcon from 'carbon-icons-svelte/lib/ChartClusterBar.svelte';
+  import FlowStreamReferenceIcon from 'carbon-icons-svelte/lib/FlowStreamReference.svelte';
+  import MachineLearningModelIcon from 'carbon-icons-svelte/lib/MachineLearningModel.svelte';
+  import { onMount } from 'svelte';
 
   let email = '';
   let isAdding = false;
@@ -16,19 +16,17 @@
   const animate = 'transition delay-75 duration-300 ease-in-out';
   const areas = [
     {
-      title: 'Access',
-      description:
-        'Quickly find any material you need to get your job done. ClassroomIO offers the All-in-on-platform'
+      title: '访问',
+      description: '快速找到完成工作所需的任何资料。ClassroomIO 提供了一体化平台。'
     },
     {
-      title: 'Analytics',
-      description:
-        'Avoid assumptions, better understand the needs of your classrooms and give students a personlized experience'
+      title: '分析',
+      description: '避免假设，更好地了解您的课堂需求，为学生提供个性化体验。'
     },
     {
-      title: 'Automation',
+      title: '自动化',
       description:
-        'Lesson reminders, deadline reminders and many other automated alerts to help everyone in the learning process be proactive'
+        '课程提醒、截止日期提醒以及许多其他自动化提醒，帮助学习过程中所有人保持积极主动。'
     }
   ];
 

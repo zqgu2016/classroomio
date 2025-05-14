@@ -1,17 +1,17 @@
-import { writable } from 'svelte/store';
-import type { Writable, Updater } from 'svelte/store';
-import {
-  createLesson,
-  updateLesson,
-  deleteLesson,
-  createLessonSection,
-  updateLessonSection,
-  deleteLessonSection
-} from '$lib/utils/services/courses';
-import type { Lesson, Course, LessonPage, LessonComment, LessonSection } from '$lib/utils/types';
-import { LOCALE } from '$lib/utils/types';
 import { snackbar } from '$lib/components/Snackbar/store';
 import { lessonValidation } from '$lib/utils/functions/validator';
+import {
+  createLesson,
+  createLessonSection,
+  deleteLesson,
+  deleteLessonSection,
+  updateLesson,
+  updateLessonSection
+} from '$lib/utils/services/courses';
+import type { Course, Lesson, LessonComment, LessonPage, LessonSection } from '$lib/utils/types';
+import { LOCALE } from '$lib/utils/types';
+import type { Updater, Writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 export const uploadCourseVideoStore = writable({
   isModalOpen: false
@@ -23,7 +23,7 @@ export const lessonSections: Writable<LessonSection[]> = writable([]);
 
 export const lesson = writable<LessonPage>({
   id: null,
-  locale: LOCALE.EN,
+  locale: LOCALE.ZH,
   title: '',
   totalExercises: 0,
   totalComments: 0,
@@ -32,7 +32,8 @@ export const lesson = writable<LessonPage>({
   materials: {
     note: '',
     slide_url: '',
-    videos: []
+    videos: [],
+    notebook_url: ''
   },
   exercises: [],
   lesson_completion: []

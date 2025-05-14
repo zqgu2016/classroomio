@@ -637,7 +637,8 @@
             "slide": {
               "title": "Slide",
               "slide_link": "Slide Link",
-              "helper_message": "You can embed Google Slides or Canva Presentation"
+              "helper_message": "You can embed Google Slides or Canva Presentation",
+              "upload_slide": "Upload Slide"
             },
             "video": {
               "title": "Video",
@@ -664,6 +665,10 @@
                 "uploading": "Uploading...",
                 "invalid_youtube": "Invalid YouTube link(s)",
                 "invalid_link": "Invalid link(s)"
+              },
+              "notebook": {
+                "title": "Notebook",
+                "upload_notebook": "Upload Jupyter Notebook"
               }
             }
           },

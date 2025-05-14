@@ -1,4 +1,3 @@
-
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import { IS_SELFHOSTED } from '$env/static/private';
@@ -33,7 +32,7 @@ export const load = async ({ url, cookies, request }): Promise<LoadOutput> => {
     skipAuth: false,
     org: null,
     baseMetaTags: getBaseMetaTags(url),
-    serverLang: request.headers?.get('accept-language') || ''
+    serverLang: 'zh'
   };
 
   console.log('IS_SELFHOSTED', IS_SELFHOSTED);

@@ -1,11 +1,11 @@
 <script>
-  import { Dropdown } from 'carbon-components-svelte';
-  import { t, initialized } from '$lib/utils/functions/translations';
   import { LANGUAGES } from '$lib/utils/constants/translation';
+  import { initialized, t } from '$lib/utils/functions/translations';
   import { LOCALE } from '$lib/utils/types';
+  import { Dropdown } from 'carbon-components-svelte';
 
   export let className = '';
-  export let value = LOCALE.EN;
+  export let value = LOCALE.ZH;
   export let hasLangChanged = false;
 
   const dropdownItems = [{ id: '', text: 'Pick a Language' }, ...LANGUAGES];

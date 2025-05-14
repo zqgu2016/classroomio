@@ -2,15 +2,8 @@ export * from './config';
 export * from './dashboard';
 
 export enum LOCALE {
-  EN = 'en',
-  HI = 'hi',
-  FR = 'fr',
-  PT = 'pt',
-  DE = 'de',
-  VI = 'vi',
-  RU = 'ru',
-  ES = 'es',
-  ZH = 'zh'
+  ZH = 'zh',
+  EN = 'en'
 }
 
 //===============Custom Type===============
@@ -296,6 +289,7 @@ export interface LessonPage {
   materials: {
     note: string;
     slide_url: string;
+    notebook_url: string;
     videos: Array<{
       type: string;
       link: string;
@@ -321,6 +315,7 @@ export interface Lesson {
   note?: any; // type unknown;
   videos?: []; // type unknown;
   slide_url?: any; // type unknown;
+  notebook_url?: any; // type unknown;
   course_id: string /* foreign key to course.id */;
   section_id?: string /* foreign key to course.id */;
   id: string /* primary key */;

@@ -15,7 +15,7 @@
   export let isLoading = false;
   export let showLogo = false;
   export let formRef;
-  export let hideGoogleAuth = false;
+  export let hideGoogleAuth = true;
 
   async function signInWithGoogle() {
     if (isLoading) {

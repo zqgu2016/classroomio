@@ -189,5 +189,18 @@ To get the environmental variables for supabase continue to step(5)
     - Visit [http://localhost:5174/login](http://localhost:5173/login)
     - Enter email: `admin@test.com`
     - Enter password: `123456`
-     
+
     To learn more about how to login with a dummy account, [go here.](https://classroomio.com/docs/contributor-guides/demo-accounts)
+
+## Jupyter Notebook Setup
+
+```
+# 启动
+docker-compose up -d
+# 关闭
+docker stop classroomio-jupyter-1 && docker rm classroomio-jupyter-1
+# 修改权限
+sudo chown -R 1000:100 apps/dashboard/uploads/ipynb
+sudo find apps/dashboard/uploads/ipynb -type d -exec chmod 755 {} \;
+sudo find apps/dashboard/uploads/ipynb -type f -exec chmod 644 {} \;
+```

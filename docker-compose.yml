@@ -1,0 +1,13 @@
+services:
+  jupyter:
+    image: jupyter/minimal-notebook:latest
+    ports:
+      - 8888:8888
+    volumes:
+      - ./apps/dashboard/uploads/ipynb:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=123456
+    command: >
+      bash -c "
+        jupyter notebook --ServerApp.default_url=/tree --ServerApp.disable_extension=jupyterlab --ServerApp.tornado_settings='{\"headers\": {\"Content-Security-Policy\": \"frame-ancestors *\"}}'
+      "

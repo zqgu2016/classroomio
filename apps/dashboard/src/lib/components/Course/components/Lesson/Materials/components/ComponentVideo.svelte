@@ -23,7 +23,7 @@
 {#if $lesson.materials.videos.length}
   <div class="w-full">
     {#each $lesson.materials.videos as video}
-      <div class="w-full overflow-hidden mb-5">
+      <div class="mb-5 w-full overflow-hidden">
         {#key video.link}
           <div class="mb-5">
             {#if video.type === 'youtube'}
@@ -35,7 +35,7 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               />
-            {:else if video.type === 'generic'}
+              <!-- {:else if video.type === 'generic'}
               <iframe
                 width="100%"
                 height="569"
@@ -45,7 +45,7 @@
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-              />
+              /> -->
             {:else if video.metadata?.svid}
               <div style="position:relative;padding-bottom:51.416579%">
                 <iframe

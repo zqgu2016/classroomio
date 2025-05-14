@@ -39,7 +39,7 @@
             : 'dark:bg-gray-500 dark:text-white'} mr-8 w-24 px-2 py-3 text-left font-semibold focus:outline-none dark:bg-transparent"
           on:click={onChange(tab.value)}
         >
-          <div class="grid grid-cols-5 items-center gap-5 md:grid-cols-4 md:gap-3">
+          <div class="flex items-center gap-2">
             {#if tab.icon}
               <svelte:component this={tab.icon} />
             {/if}

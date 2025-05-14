@@ -1,17 +1,16 @@
 <script>
   import { page } from '$app/stores';
-  import { Tabs, Tab, TabContent } from 'carbon-components-svelte';
-  import Profile from './Profile.svelte';
+  import { Tab, TabContent, Tabs } from 'carbon-components-svelte';
   import LandingpageSettings from './LandingpageSettings.svelte';
+  import Profile from './Profile.svelte';
   // import Account from './Account.svelte';
-  import OrgSettings from './OrgSettings.svelte';
-  import Billing from './Billing.svelte';
-  import { onMount } from 'svelte';
   import { browser } from '$app/environment';
   import { goto } from '$app/navigation';
-  import { isOrgAdmin } from '$lib/utils/store/org';
-  import Integrations from './Integrations.svelte';
   import { t } from '$lib/utils/functions/translations';
+  import { isOrgAdmin } from '$lib/utils/store/org';
+  import Billing from './Billing.svelte';
+  import Integrations from './Integrations.svelte';
+  import OrgSettings from './OrgSettings.svelte';
 
   let selected = 0;
   let query = new URLSearchParams($page.url.search);
@@ -66,14 +65,14 @@
         label: $t('settings.tabs.billing_tab'),
         tabKey: 'billing',
         href: `${$page.url.pathname}?tab=billing`,
-        disabled: !$isOrgAdmin
+        disabled: true
       },
       {
         key: 4,
         label: $t('settings.tabs.integrations_tab'),
         tabKey: 'integrations',
         href: `${$page.url.pathname}?tab=integrations`,
-        disabled: false
+        disabled: true
       }
     ];
   }

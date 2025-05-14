@@ -26,6 +26,12 @@ export let tabs: MaterialTab[] = [
     icon: Video,
     value: 3,
     badgeValue: 0
+  },
+  {
+    label: 'course.navItem.lessons.materials.tabs.notebook.title',
+    icon: Notebook,
+    value: 4,
+    badgeValue: 0
   }
 ];
 

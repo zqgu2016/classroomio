@@ -1,9 +1,9 @@
-import { writable } from 'svelte/store';
-import type { Writable } from 'svelte/store';
-import { lessons, lessonSections } from './components/Lesson/store/lessons';
 import { ROLE } from '$lib/utils/constants/roles';
 import type { Course, GroupPerson, Lesson, LessonSection } from '$lib/utils/types';
 import { COURSE_TYPE, COURSE_VERSION } from '$lib/utils/types';
+import type { Writable } from 'svelte/store';
+import { writable } from 'svelte/store';
+import { lessons, lessonSections } from './components/Lesson/store/lessons';
 
 export const defaultCourse: Course = {
   id: '',
@@ -43,7 +43,8 @@ export const defaultCourse: Course = {
     lessonTabsOrder: [
       { id: 1, name: 'course.navItem.lessons.materials.tabs.note.title' },
       { id: 2, name: 'course.navItem.lessons.materials.tabs.slide.title' },
-      { id: 3, name: 'course.navItem.lessons.materials.tabs.video.title' }
+      { id: 3, name: 'course.navItem.lessons.materials.tabs.video.title' },
+      { id: 4, name: 'course.navItem.lessons.materials.tabs.notebook.title' }
     ],
     grading: false,
     lessonDownload: true,

@@ -117,7 +117,7 @@ const ID_QUERY = `
   lesson_section(id, title, order, created_at),
   lessons:lesson(
     id, title, public, lesson_at, is_unlocked, order, created_at, section_id,
-    note, videos, slide_url, call_url, totalExercises:exercise(count), totalComments:lesson_comment(count),
+    note, videos, slide_url, notebook_url, call_url, totalExercises:exercise(count), totalComments:lesson_comment(count),
     profile:teacher_id(id, avatar_url, fullname),
     lesson_completion(id, profile_id, is_complete)
   ),
@@ -257,9 +257,7 @@ export async function getMarks(courseId) {
   if (!courseId) return;
 
   // Gets courses for a particular organisation where the current logged in user is a groupmember
-  const { data: marks } = await supabase
-    .rpc('get_marks')
-    .eq('course_id', courseId);
+  const { data: marks } = await supabase.rpc('get_marks').eq('course_id', courseId);
 
   return { marks };
 }
@@ -273,6 +271,7 @@ export function fetchLesson(lessonId: Lesson['id']) {
       note,
       videos,
       slide_url,
+      notebook_url,
       call_url,
       totalExercises:exercise(count),
       totalComments:lesson_comment(count),

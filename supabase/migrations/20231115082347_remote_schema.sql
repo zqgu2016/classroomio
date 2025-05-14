@@ -319,6 +319,7 @@ CREATE TABLE IF NOT EXISTS "public"."lesson" (
     "note" character varying,
     "video_url" character varying,
     "slide_url" character varying,
+    "notebook_url" character varying,
     "course_id" "uuid" NOT NULL,
     "id" "uuid" DEFAULT "extensions"."uuid_generate_v4"() NOT NULL,
     "created_at" timestamp with time zone DEFAULT "now"(),

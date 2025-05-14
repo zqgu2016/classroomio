@@ -70,6 +70,7 @@
         lessonNumber: getLessonOrder(lesson.id),
         lessonNote: lesson.note,
         slideUrl: lesson.slide_url || '',
+        notebook_url: lesson.notebook_url || '',
         video: lesson.videos || ''
       }));
 

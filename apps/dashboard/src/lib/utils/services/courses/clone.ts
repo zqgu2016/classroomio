@@ -6,11 +6,11 @@ import { QUESTION_TYPE } from '$lib/components/Question/constants';
 // @ts-ignore
 import { ROLE } from '$lib/utils/constants/roles';
 // @ts-ignore
-import { addGroupMember } from './index';
 import { get } from 'svelte/store';
+import { addGroupMember } from './index';
 // @ts-ignore
-import { profile } from '$lib/utils/store/user';
 import { supabase } from '$lib/utils/functions/supabase';
+import { profile } from '$lib/utils/store/user';
 
 type GetCourseResponse = {
   data: Course;
@@ -108,6 +108,7 @@ async function cloneLessons(lessons: Lesson[], courseId: Course['id']) {
       order: lesson.order || index + 1,
       public: lesson.public,
       slide_url: lesson.slide_url,
+      notebook_url: lesson.notebook_url,
       title: lesson.title,
       videos: lesson.videos
     }));

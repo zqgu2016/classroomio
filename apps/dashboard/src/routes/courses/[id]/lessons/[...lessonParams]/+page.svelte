@@ -162,6 +162,7 @@
       const lessonVideo = $lesson.materials.videos.map((video) => video.link);
       const lessonNumber = getLessonOrder(currentLesson.id);
       const slideUrl = $lesson.materials.slide_url || '';
+      const notebookUrl = $lesson.materials.notebook_url || '';
 
       const response = await fetch(env.PUBLIC_SERVER_URL + '/downloadLesson', {
         method: 'POST',
@@ -175,6 +176,7 @@
           orgName: $currentOrg.name,
           note: $lesson.materials.note,
           slideUrl: slideUrl,
+          notebookUrl: notebookUrl,
           video: lessonVideo,
           courseTitle: $course.title
         })
@@ -223,7 +225,8 @@
       materials: {
         videos: lessonData.videos,
         note: lessonData.note,
-        slide_url: lessonData.slide_url
+        slide_url: lessonData.slide_url,
+        notebook_url: lessonData.notebook_url
       },
       lesson_completion,
       exercises: [],
@@ -411,7 +414,7 @@
   {:else if !!data.lessonId}
     <PageBody
       bind:isPageNavHidden={$globalStore.isStudent}
-      width="lg:w-full xl:w-11/12"
+      width="w-full"
       className="overflow-x-hidden"
     >
       <!-- Shows Lesson Note / Slides / Video -->
@@ -427,7 +430,7 @@
   {/if}
 
   <!-- Bottom Lesson Widget -->
-  <div class="absolute bottom-5 flex w-full items-center justify-center">
+  <div class="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center justify-center">
     <div
       class="flex w-fit items-center gap-2 rounded-full bg-gray-100 px-5 py-1 shadow-xl dark:bg-neutral-700"
     >

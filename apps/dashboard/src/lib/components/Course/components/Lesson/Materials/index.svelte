@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
   import Box from '$lib/components/Box/index.svelte';
   import VideoUploader from '$lib/components/Course/components/Lesson/Materials/Video/Index.svelte';
   import {
@@ -11,8 +12,6 @@
     uploadCourseVideoStore
   } from '$lib/components/Course/components/Lesson/store/lessons';
   import { course } from '$lib/components/Course/store';
-  import TextField from '$lib/components/Form/TextField.svelte';
-  import HtmlRender from '$lib/components/HTMLRender/HTMLRender.svelte';
   import IconButton from '$lib/components/IconButton/index.svelte';
   import Modal from '$lib/components/Modal/index.svelte';
   import { VARIANTS } from '$lib/components/PrimaryButton/constants';
@@ -26,19 +25,21 @@
   import { supabase } from '$lib/utils/functions/supabase';
   import { isHtmlValueEmpty } from '$lib/utils/functions/toHtml';
   import { lessonFallbackNote, t } from '$lib/utils/functions/translations';
-  import { currentOrg } from '$lib/utils/store/org';
+  import { uploadFile } from '$lib/utils/services/files';
+  import { isMobile } from '$lib/utils/store/useMobile';
   import type { LessonPage, LOCALE } from '$lib/utils/types';
   import { useCompletion } from 'ai/svelte';
-  import { Popover } from 'carbon-components-svelte';
+  import { FileUploader, FileUploaderItem, Popover } from 'carbon-components-svelte';
   import AlignBoxTopLeftIcon from 'carbon-icons-svelte/lib/AlignBoxTopLeft.svelte';
   import IbmWatsonKnowledgeStudioIcon from 'carbon-icons-svelte/lib/IbmWatsonKnowledgeStudio.svelte';
   import ListIcon from 'carbon-icons-svelte/lib/List.svelte';
   import MagicWandFilled from 'carbon-icons-svelte/lib/MagicWandFilled.svelte';
   import TrashCanIcon from 'carbon-icons-svelte/lib/TrashCan.svelte';
   import isEmpty from 'lodash/isEmpty';
+  import { onDestroy, onMount } from 'svelte';
   import { fade } from 'svelte/transition';
-  import Comments from './components/Comments.svelte';
   import ComponentNote from './components/ComponentNote.svelte';
+  import ComponentNotebook from './components/ComponentNotebook.svelte';
   import ComponentSlide from './components/ComponentSlide.svelte';
   import ComponentVideo from './components/ComponentVideo.svelte';
   import * as CONSTANTS from './constants';
@@ -144,11 +145,12 @@
     materials: LessonPage['materials'],
     translation: Record<LOCALE, string>
   ) {
-    const { slide_url, videos, note } = materials;
+    const { slide_url, videos, note, notebook_url } = materials;
 
     return (
       isHtmlValueEmpty(note) &&
       !slide_url &&
+      !notebook_url &&
       isEmpty(videos) &&
       Object.values(translation || {}).every((t) => isHtmlValueEmpty(t))
     );
@@ -161,7 +163,7 @@
   }
 
   function addBadgeValueToTab(materials: LessonPage['materials']) {
-    const { slide_url, videos, note } = materials;
+    const { slide_url, videos, note, notebook_url } = materials;
 
     tabs = tabs.map((tab) => {
       let badgeValue = 0;
@@ -171,6 +173,8 @@
       } else if (tab.value === 2 && !!slide_url) {
         badgeValue = 1;
       } else if (tab.value === 3 && !isEmpty(videos)) {
+        badgeValue = 1;
+      } else if (tab.value === 4 && !!notebook_url) {
         badgeValue = 1;
       }
       tab.badgeValue = badgeValue;
@@ -288,6 +292,83 @@
     return componentNames;
   }
 
+  // 默认宽度百分比
+  let leftPercent = 50;
+
+  let dragging = false;
+
+  let overlayActive = false;
+
+  function handleMouseDown(e) {
+    dragging = true;
+    overlayActive = true;
+    document.body.style.userSelect = 'none';
+  }
+
+  function handleMouseMove(e) {
+    if (!dragging) return;
+    const container = document.getElementById('split-container');
+    const rect = container!.getBoundingClientRect();
+    // 计算左侧百分比
+    const x = e.clientX - rect.left;
+    let percent = (x / rect.width) * 100;
+    percent = Math.max(10, Math.min(90, percent)); // 限制最小最大宽度
+    leftPercent = percent;
+  }
+
+  function handleMouseUp(e) {
+    if (dragging) {
+      dragging = false;
+      overlayActive = false;
+      document.body.style.userSelect = '';
+    }
+  }
+
+  onMount(() => {
+    if (!$isMobile) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+  });
+
+  onDestroy(() => {
+    if (!browser) {
+      return;
+    }
+    if (!$isMobile) {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.userSelect = '';
+    }
+  });
+
+  let uploadingSlideStatus: undefined | 'complete' | 'edit' | 'uploading' = undefined;
+  let uploadingNotebookStatus: undefined | 'complete' | 'edit' | 'uploading' = undefined;
+
+  async function handleSlideChange(evt: Event) {
+    uploadingSlideStatus = 'uploading';
+    try {
+      const res = await uploadFile(evt.detail[0]);
+      $lesson.materials.slide_url = `${location.protocol}//${location.host}${res.url}`;
+      uploadingSlideStatus = 'complete';
+    } catch (error) {
+      console.error(error);
+      uploadingSlideStatus = 'edit';
+    }
+  }
+
+  async function handleNotebookChange(evt: Event) {
+    uploadingNotebookStatus = 'uploading';
+    try {
+      const res = await uploadFile(evt.detail[0]);
+      $lesson.materials.notebook_url = res.filename;
+      uploadingNotebookStatus = 'complete';
+    } catch (error) {
+      console.error(error);
+      uploadingNotebookStatus = 'edit';
+    }
+  }
+
   $: autoSave($lesson.materials, $lessonByTranslation[lessonId], $isLoading, lessonId);
 
   $: onLessonIdChange(lessonId);
@@ -318,13 +399,13 @@
   <VideoUploader {lessonId} />
 </Modal>
 
-<HtmlRender className="m-auto text-center">
+<!-- <HtmlRender className="m-auto text-center">
   <svelte:fragment slot="content">
     <h1 class="mt-0 text-2xl capitalize md:text-4xl">
       {lessonTitle}
     </h1>
   </svelte:fragment>
-</HtmlRender>
+</HtmlRender> -->
 
 {#if $lesson.isFetching}
   <Loader />
@@ -400,12 +481,24 @@
         index={currentTab}
       >
         {#if mode === MODES.edit}
-          <TextField
+          <!-- <TextField
             label={$t('course.navItem.lessons.materials.tabs.slide.slide_link')}
             bind:value={$lesson.materials.slide_url}
             onInputChange={() => ($isLessonDirty = true)}
             helperMessage={$t('course.navItem.lessons.materials.tabs.slide.helper_message')}
+          /> -->
+          <FileUploader
+            buttonLabel={$t('course.navItem.lessons.materials.tabs.slide.upload_slide')}
+            accept={['.ppt', '.pptx']}
+            status={uploadingSlideStatus}
+            on:change={handleSlideChange}
           />
+          {#if !uploadingSlideStatus && $lesson.materials.slide_url}
+            <FileUploaderItem
+              name={$lesson.materials.slide_url.split('/').pop()}
+              status="complete"
+            />
+          {/if}
         {/if}
       </TabContent>
       <TabContent
@@ -480,19 +573,70 @@
           </div>
         {/if}
       </TabContent>
+      <TabContent
+        value={getValue('course.navItem.lessons.materials.tabs.notebook.title')}
+        index={currentTab}
+      >
+        {#if mode === MODES.edit}
+          <FileUploader
+            buttonLabel={$t('course.navItem.lessons.materials.tabs.notebook.upload_notebook')}
+            accept={['.ipynb']}
+            status={uploadingNotebookStatus}
+            on:change={handleNotebookChange}
+          />
+          {#if !uploadingNotebookStatus && $lesson.materials.notebook_url}
+            <FileUploaderItem
+              name={$lesson.materials.notebook_url.split('/').pop()}
+              status="complete"
+            />
+          {/if}
+        {/if}
+      </TabContent>
     </slot:fragment>
   </Tabs>
 {:else if !isMaterialsEmpty($lesson.materials, $lessonByTranslation[lessonId])}
   {#key lessonId}
-    <div class="mb-20 w-full" in:fade={{ delay: 500 }} out:fade>
-      {#each componentsToRender as Component}
-        <svelte:component this={Component} {lessonId} />
-      {/each}
+    <div class="mb-20 h-full w-full" in:fade={{ delay: 500 }} out:fade>
+      {#if $lesson.materials.notebook_url}
+        <div id="split-container" class="flex h-full w-full" style="height: 100%">
+          <div class="h-size-full mr-2" style="width: {leftPercent}%; min-width: 10%;">
+            <ComponentNotebook />
+          </div>
+          <!-- 分割条 -->
+          <div
+            class="relative cursor-col-resize"
+            style="width:8px; min-width:8px; height:100%;"
+            role="button"
+            tabindex="0"
+            on:mousedown={handleMouseDown}
+          >
+            <div
+              class="absolute left-1 top-0 h-full w-2 rounded bg-gray-300 transition-colors duration-200 hover:bg-blue-400"
+            ></div>
+          </div>
+          <!-- 右侧 -->
+          <div
+            class="ml-4 h-full flex-1"
+            style="width: calc(100% - {leftPercent}% - 32px); min-width: 10%;"
+          >
+            {#each componentsToRender as Component}
+              <svelte:component this={Component} {lessonId} />
+            {/each}
+          </div>
+        </div>
+        {#if overlayActive}
+          <div class="fixed inset-0 z-50" style="cursor: col-resize;"></div>
+        {/if}
+      {:else}
+        {#each componentsToRender as Component}
+          <svelte:component this={Component} {lessonId} />
+        {/each}
+      {/if}
 
-      {#if $currentOrg.customization.apps.comments}
+      <!-- {#if $currentOrg.customization.apps.comments}
         <hr class="my-5" />
         <Comments {lessonId} />
-      {/if}
+      {/if} -->
     </div>
   {/key}
 {:else}

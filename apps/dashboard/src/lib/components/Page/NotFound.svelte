@@ -10,7 +10,7 @@
       return goto('/');
     }
 
-    return goto('https://classroomio.com');
+    return goto('https://academy.rios.com.ai');
   }
 </script>
 

@@ -1,10 +1,10 @@
 <script>
-  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import Audience from '$lib/components/Org/Audience/index.svelte';
-  import { t } from '$lib/utils/functions/translations';
-  import { orgAudience, currentOrgPlan, currentOrgMaxAudience } from '$lib/utils/store/org';
-  import { PLAN } from 'shared/src/plans/constants';
+  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import UpgradeBanner from '$lib/components/Upgrade/Banner.svelte';
+  import { t } from '$lib/utils/functions/translations';
+  import { currentOrgMaxAudience, currentOrgPlan, orgAudience } from '$lib/utils/store/org';
+  import { PLAN } from 'shared/src/plans/constants';
 
   let isLoading = false;
 
@@ -16,14 +16,14 @@
 </script>
 
 <svelte:head>
-  <title>Audience - ClassroomIO</title>
+  <title>Audience - RiOS Academy</title>
 </svelte:head>
 
-<section class="w-full max-w-4xl mx-auto">
-  <div class="py-10 px-5">
-    <div class="flex items-center justify-between mb-10">
+<section class="mx-auto w-full max-w-4xl">
+  <div class="px-5 py-10">
+    <div class="mb-10 flex items-center justify-between">
       <div class="flex items-end">
-        <h1 class="dark:text-white text-2xl md:text-3xl font-bold m-0">{$t('audience.title')}</h1>
+        <h1 class="m-0 text-2xl font-bold dark:text-white md:text-3xl">{$t('audience.title')}</h1>
         {#if $currentOrgPlan?.plan_name !== PLAN.ENTERPRISE}
           <span class="ml-2">
             ({$orgAudience.length} / {$currentOrgMaxAudience})

@@ -28,12 +28,12 @@ export async function POST({ request }) {
 
   const emailData = [
     {
-      from: `"Best from ClassroomIO" <notify@mail.classroomio.com>`,
+      from: `"Best from RiOS Academy" <notify@mail.academy.rios.com.ai>`,
       to: email,
-      subject: `Join ${name} on ClassroomIO 😃`,
+      subject: `Join ${name} on RiOS Academy 😃`,
       content: `
     <p>Hey there,</p>
-      <p> You have been invited to join ${name} on ClassroomIO 🎉🎉🎉.</p>
+      <p> You have been invited to join ${name} on RiOS Academy 🎉🎉🎉.</p>
       <div>
         <a class="button" href="${inviteLink}">Accept Invitation</a>
       </div>

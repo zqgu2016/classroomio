@@ -15,7 +15,7 @@
   import Snackbar from '$lib/components/Snackbar/index.svelte';
   import UpgradeModal from '$lib/components/Upgrade/Modal.svelte';
   import { isCoursesPage, isLMSPage, isOrgPage, toggleBodyByMode } from '$lib/utils/functions/app';
-  import { getProfile, setupAnalytics } from '$lib/utils/functions/appSetup';
+  import { getProfile } from '$lib/utils/functions/appSetup';
   import hideNavByRoute from '$lib/utils/functions/routes/hideNavByRoute';
   import showAppsSideBar from '$lib/utils/functions/showAppsSideBar';
   import { getSupabase } from '$lib/utils/functions/supabase';
@@ -28,7 +28,6 @@
   import type { CarbonTheme } from 'carbon-components-svelte/types/Theme/Theme.svelte';
   import merge from 'lodash/merge';
   import { onMount } from 'svelte';
-  import { MetaTags } from 'svelte-meta-tags';
 
   import '../app.postcss';
 
@@ -47,7 +46,7 @@
 
   onMount(() => {
     console.log(
-      'Welcome to ClassroomIO, we are grateful you chose us.',
+      'Welcome to RiOS Academy, we are grateful you chose us.',
       $page.url.host,
       `\nIs student domain: ${data.isOrgSite}`
     );
@@ -61,7 +60,7 @@
         setTheme(data.org?.theme);
       }
     }
-    setupAnalytics();
+    // setupAnalytics();
 
     handleResize();
 
@@ -120,7 +119,7 @@
 
 <svelte:window on:resize={handleResize} />
 
-<MetaTags {...metaTags} />
+<!-- <MetaTags {...metaTags} /> -->
 
 <Theme bind:theme={carbonTheme} />
 

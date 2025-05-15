@@ -1,17 +1,17 @@
 <script lang="ts">
-  import Modal from '$lib/components/Modal/index.svelte';
-  import TextField from '$lib/components/Form/TextField.svelte';
-  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
-  import { supabase } from '$lib/utils/functions/supabase';
-  import { profile } from '$lib/utils/store/user';
-  import { generateSitename } from '$lib/utils/functions/org';
-  import { getOrganizations } from '$lib/utils/services/org';
-  import { blockedSubdomain } from '$lib/utils/constants/app';
-  import { newOrgModal } from '../store';
-  import { snackbar } from '$lib/components/Snackbar/store';
-  import { createOrgValidation } from '$lib/utils/functions/validator';
   import { goto } from '$app/navigation';
+  import TextField from '$lib/components/Form/TextField.svelte';
+  import Modal from '$lib/components/Modal/index.svelte';
+  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
+  import { snackbar } from '$lib/components/Snackbar/store';
+  import { blockedSubdomain } from '$lib/utils/constants/app';
+  import { generateSitename } from '$lib/utils/functions/org';
+  import { supabase } from '$lib/utils/functions/supabase';
   import { t } from '$lib/utils/functions/translations';
+  import { createOrgValidation } from '$lib/utils/functions/validator';
+  import { getOrganizations } from '$lib/utils/services/org';
+  import { profile } from '$lib/utils/store/user';
+  import { newOrgModal } from '../store';
 
   type Error = {
     orgName: string;
@@ -125,7 +125,7 @@
     <!-- Org Site Name -->
     <TextField
       label={$t('add_org.org_sitename')}
-      helperMessage={`https://${siteName || ''}.classroomio.com`}
+      helperMessage={`https://${siteName || ''}.academy.rios.com.ai`}
       bind:value={siteName}
       name="sitename"
       type="text"
@@ -136,7 +136,7 @@
       isRequired={true}
     />
 
-    <div class="mt-5 flex items-center flex-row-reverse">
+    <div class="mt-5 flex flex-row-reverse items-center">
       <PrimaryButton
         className="px-6 py-3"
         label={$t('add_org.create')}

@@ -13,11 +13,11 @@
     The page you are trying to access does not exist
   </p>
 
-  <PrimaryButton label="Go Home" onClick={() => goto('https://www.classroomio.com')} />
+  <PrimaryButton label="Go Home" onClick={() => goto('https://academy.rios.com.ai')} />
   <PrimaryButton
     label="Help"
     variant={VARIANTS.LINK}
-    onClick={() => goto('https://help.classroomio.com/')}
+    onClick={() => goto('https://help.academy.rios.com.ai/')}
   />
 </div>
 

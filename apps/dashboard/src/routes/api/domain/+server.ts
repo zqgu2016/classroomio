@@ -13,8 +13,8 @@ export async function POST({ request }) {
     return json({ success: false, message: 'Missing fields' }, { status: 400 });
   }
 
-  if (params?.domain?.includes('classroomio')) {
-    return json({ success: false, message: 'Domain cannot contain classroomio' }, { status: 400 });
+  if (params?.domain?.includes('rios')) {
+    return json({ success: false, message: 'Domain cannot contain rios' }, { status: 400 });
   }
 
   try {

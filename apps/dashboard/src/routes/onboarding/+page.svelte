@@ -236,8 +236,8 @@
       <!-- Header With Logo -->
       <div class="flex flex-col items-center">
         <div class="mb-4 flex w-full items-center justify-center">
-          <img src="/logo-192.png" alt="ClassroomIO logo" height="50" width="50" data-atf="1" />
-          <h4 class="text-xl dark:text-white">ClassroomIO</h4>
+          <img src="/logo-192.png" alt="RiOS Academy logo" height="50" width="50" data-atf="1" />
+          <h4 class="text-xl dark:text-white">RiOS Academy</h4>
         </div>
 
         <!-- Loggedin Email -->
@@ -282,7 +282,7 @@
             <!-- Org Site Name -->
             <TextField
               label={$t('onboarding.organisation_sitename')}
-              helperMessage={`https://${fields.siteName || ''}.classroomio.com`}
+              helperMessage={`https://${fields.siteName || ''}.academy.rios.com.ai`}
               bind:value={fields.siteName}
               name="sitename"
               type="text"

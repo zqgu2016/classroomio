@@ -123,7 +123,7 @@
 </script>
 
 <svelte:head>
-  <title>Join ClassroomIO</title>
+  <title>Join RiOS Academy</title>
 </svelte:head>
 
 <AuthUI {supabase} isLogin={false} {handleSubmit} isLoading={loading} bind:formRef>

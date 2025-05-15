@@ -1,13 +1,13 @@
 <script>
   import { goto } from '$app/navigation';
-  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
-  import Modal from '$lib/components/Modal/index.svelte';
   import TextField from '$lib/components/Form/TextField.svelte';
+  import Modal from '$lib/components/Modal/index.svelte';
+  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import { snackbar } from '$lib/components/Snackbar/store';
   import { supabase } from '$lib/utils/functions/supabase';
-  import { currentOrg, createQuizModal, currentOrgPath, quizesStore } from '$lib/utils/store/org';
-  import { createQuizValidation } from '$lib/utils/functions/validator';
   import { t } from '$lib/utils/functions/translations';
+  import { createQuizValidation } from '$lib/utils/functions/validator';
+  import { createQuizModal, currentOrg, currentOrgPath, quizesStore } from '$lib/utils/store/org';
 
   let open = false;
   let errors = {
@@ -98,7 +98,7 @@
 </script>
 
 <svelte:head>
-  <title>{$t('components.quiz.title')} - ClassroomIO</title>
+  <title>{$t('components.quiz.title')} - RiOS Academy</title>
 </svelte:head>
 
 <Modal

@@ -89,7 +89,7 @@
       return;
     }
 
-    if (sanitizedDomain.includes('classroomio')) {
+    if (sanitizedDomain.includes('rios')) {
       errors.customDomain = $t('components.settings.domains.custom_domain_not_classroomio');
       return;
     }
@@ -224,7 +224,7 @@
         <!-- Org Site Name -->
         <TextField
           label="URL"
-          helperMessage={`https://${siteName || ''}.classroomio.com`}
+          helperMessage={`https://${siteName || ''}.academy.rios.com.ai`}
           bind:value={siteName}
           type="text"
           placeholder="e.g traversymedia"

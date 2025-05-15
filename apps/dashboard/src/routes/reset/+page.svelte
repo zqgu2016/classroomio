@@ -1,15 +1,15 @@
 <script>
   import { goto } from '$app/navigation';
+  import AuthUI from '$lib/components/AuthUI/index.svelte';
   import TextField from '$lib/components/Form/TextField.svelte';
   import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
+  import { RESET_FIELDS } from '$lib/utils/constants/authentication';
   import { getSupabase } from '$lib/utils/functions/supabase';
   import {
-    resetValidation,
     getConfirmPasswordError,
-    getDisableSubmit
+    getDisableSubmit,
+    resetValidation
   } from '$lib/utils/functions/validator';
-  import { RESET_FIELDS } from '$lib/utils/constants/authentication';
-  import AuthUI from '$lib/components/AuthUI/index.svelte';
 
   let supabase = getSupabase();
   let fields = Object.assign({}, RESET_FIELDS);
@@ -51,7 +51,7 @@
 </script>
 
 <svelte:head>
-  <title>Join ClassroomIO</title>
+  <title>Join RiOS Academy</title>
 </svelte:head>
 
 <AuthUI
@@ -64,8 +64,8 @@
   bind:formRef
 >
   <div class="mt-4 w-full">
-    <h3 class="dark:text-white text-xl font-semibold my-3">New Password</h3>
-    <p class="dark:text-white text-sm mb-6">Enter your new password details</p>
+    <h3 class="my-3 text-xl font-semibold dark:text-white">New Password</h3>
+    <p class="mb-6 text-sm dark:text-white">Enter your new password details</p>
     <TextField
       label="Your Password"
       bind:value={fields.password}
@@ -94,7 +94,7 @@
     {/if}
   </div>
 
-  <div class="my-4 w-full flex justify-end items-center">
+  <div class="my-4 flex w-full items-center justify-end">
     <PrimaryButton
       label="Reset Password"
       type="submit"

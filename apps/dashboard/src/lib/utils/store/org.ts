@@ -50,7 +50,7 @@ export const currentOrgDomain = derived(currentOrg, ($currentOrg) => {
     : $currentOrg.customDomain && $currentOrg.isCustomDomainVerified
       ? `https://${$currentOrg.customDomain}`
       : $currentOrg.siteName
-        ? `https://${$currentOrg.siteName}.classroomio.com`
+        ? `https://${$currentOrg.siteName}.academy.rios.com.ai`
         : '';
 });
 

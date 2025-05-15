@@ -1,11 +1,11 @@
 <script>
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
-  import { user } from '$lib/utils/store/user';
-  import { isCoursePage } from '$lib/utils/functions/app';
-  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
   import { VARIANTS } from '$lib/components/PrimaryButton/constants';
+  import PrimaryButton from '$lib/components/PrimaryButton/index.svelte';
+  import { isCoursePage } from '$lib/utils/functions/app';
   import { t } from '$lib/utils/functions/translations';
+  import { user } from '$lib/utils/store/user';
 
   export let disableSignup = false;
   export let logo;
@@ -21,20 +21,20 @@
 </script>
 
 <nav
-  class="{navClass} {backgroundColor} sticky top-0 z-50 flex w-full px-2 py-1 border-t-0 border-r-0 border-b border-l-0 border-gray-300"
+  class="{navClass} {backgroundColor} sticky top-0 z-50 flex w-full border-b border-l-0 border-r-0 border-t-0 border-gray-300 px-2 py-1"
 >
   <ul class="flex w-full items-center">
     <div class="logo">
       <a
         href="/"
-        title={`${$t('navigation.goto')} ${orgName || 'ClassroomIO'} ${$t('navigation.home')}`}
+        title={`${$t('navigation.goto')} ${orgName || 'RiOS Academy'} ${$t('navigation.home')}`}
         id="logo"
         data-hveid="8"
       >
         <img
           src={logo || '/logo-192.png'}
-          alt={`${orgName || 'ClassroomIO'} logo`}
-          class="rounded w-9 inline-block mx-auto"
+          alt={`${orgName || 'RiOS Academy'} logo`}
+          class="mx-auto inline-block w-9 rounded"
           data-atf="1"
         />
       </a>

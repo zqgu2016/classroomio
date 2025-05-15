@@ -964,7 +964,7 @@
         "remove": "Entfernen",
         "custom_favicon": "Benutzerdefiniertes Favicon",
         "custom_code": "Benutzerdefinierter Code",
-        "custom_domain_not_classroomio": "Domain darf „classroomio“ nicht enthalten"
+        "custom_domain_not_classroomio": "Domain darf „rios“ nicht enthalten"
       },
       "customize-lms": {
         "title": "LMS anpassen",
@@ -1057,12 +1057,12 @@
     "goto": "Gehe zu",
     "courses": "Kurse",
     "home": "Heim",
-    "classroomio_home": "ClassroomIO Home",
+    "classroomio_home": "RiOS Academy Home",
     "dashboard": "Armaturenbrett",
     "discussion": "Diskussion",
     "people": "Menschen",
     "goto_lms": "Gehen Sie zu LMS",
-    "goto_home": "Gehen Sie zur ClassroomIO-Startseite",
+    "goto_home": "Gehen Sie zur RiOS Academy-Startseite",
     "login": "Anmeldung",
     "signup": "Melden Sie sich an",
     "redirecting": "Umleiten",
@@ -1154,7 +1154,7 @@
     "integrations": {
       "heading": "Telegramm",
       "sub_heading": "Verbinden Sie Ihr Konto mit Telegram, um über jede Änderung innerhalb der Anwendung benachrichtigt zu werden.",
-      "step_authenticate": "Schritt 1: Authentifizieren Sie Ihr Konto über den ClassroomIO-Bot.",
+      "step_authenticate": "Schritt 1: Authentifizieren Sie Ihr Konto über den RiOS Academy-Bot.",
       "open_bot_button": "Bot öffnen",
       "step_chatId": "Schritt 2: Geben Sie die Chat-ID ein, die Ihnen der Bot gegeben hat.",
       "connect_button": "Verbinden",

@@ -86,11 +86,7 @@ export async function getProfile({
     data: profileData,
     error,
     status
-  } = await supabase
-    .from('profile')
-    .select(`*`)
-    .eq('id', authUser?.id)
-    .single();
+  } = await supabase.from('profile').select(`*`).eq('id', authUser?.id).single();
   console.log('Get profile', profileData);
 
   if (error && !profileData && status === 406 && authUser) {
@@ -124,7 +120,7 @@ export async function getProfile({
 
       profile.set(newProfileData[0]);
 
-      setAnalyticsUser();
+      // setAnalyticsUser();
 
       // Fetch language
       handleLocaleChange(newProfileData[0].locale);
@@ -180,7 +176,7 @@ export async function getProfile({
     profile.set(profileData);
 
     // Set user in sentry
-    setAnalyticsUser();
+    // setAnalyticsUser();
 
     handleLocaleChange(profileData.locale);
 
@@ -199,11 +195,12 @@ export async function getProfile({
       if (isStudentAccount) {
         // Check if the student logged into the dashboard.
         console.log('Student logged into dashboard');
-        if (dev) {
-          goto('/lms');
-        } else {
-          window.location.replace(`${currentOrgDomainStore}/lms`);
-        }
+        goto('/lms');
+        // if (dev) {
+        //   goto('/lms');
+        // } else {
+        //   window.location.replace(`${currentOrgDomainStore}/lms`);
+        // }
       } else if (isEmpty(orgRes.orgs) && !path.includes('invite')) {
         // Not on invite page or no org, go to onboarding
         goto(ROUTE.ONBOARDING);

@@ -11,7 +11,7 @@ export async function POST({ request }) {
 
   const emailData = [
     {
-      from: `"ClassroomIO" <notify@mail.classroomio.com>`,
+      from: `"RiOS Academy" <notify@mail.academy.rios.com.ai>`,
       to,
       subject: `[${courseName}] You've got a new student 🎉!`,
       content: `

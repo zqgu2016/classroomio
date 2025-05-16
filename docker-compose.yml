@@ -9,5 +9,5 @@ services:
       - JUPYTER_TOKEN=123456
     command: >
       bash -c "
-        jupyter notebook --ServerApp.default_url=/tree --ServerApp.disable_extension=jupyterlab --ServerApp.tornado_settings='{\"headers\": {\"Content-Security-Policy\": \"frame-ancestors *\"}}'
+        jupyter notebook --ServerApp.base_url=/jupyter --ServerApp.default_url=/tree --ServerApp.disable_extension=jupyterlab --ServerApp.tornado_settings='{\"headers\": {\"Content-Security-Policy\": \"frame-ancestors *\"}}'
       "

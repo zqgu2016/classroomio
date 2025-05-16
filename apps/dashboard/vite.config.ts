@@ -16,10 +16,7 @@ export default ({ mode }) => {
     plugins: [sveltekit()],
     server: getServer(process.env),
     build: {
-      sourcemap: true,
-      rollupOptions: {
-        external: ['mime-types']
-      }
+      sourcemap: true
     },
     optimizeDeps: {
       entries: ['src/routes/**/+*.{js,ts,svelte}']
@@ -40,6 +37,15 @@ function getServer(params: any) {
       }
     };
   }
+  return {
+    proxy: {
+      '/api/files': {
+        target: 'http://localhost:3002',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/files/, '/files')
+      }
+    }
+  };
 }
 
 // function getSentryConfig(params: any) {

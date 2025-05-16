@@ -7,12 +7,13 @@ const bodyParser = require('body-parser');
 // const sentry = require('@sentry/node');
 // const { ProfilingIntegration } = require('@sentry/profiling-node');
 
-const uploadVideo = require('./src/routes/uploadVideo');
-const downloadCertificate = require('./src/routes/downloadCertificate');
-const downloadLesson = require('./src/routes/downloadLesson');
-const downloadCourse = require('./src/routes/downloadCourse');
-const katex = require('./src/routes/katex');
-const sendEmail = require('./src/routes/sendEmail');
+// const uploadVideo = require('./src/routes/uploadVideo');
+// const downloadCertificate = require('./src/routes/downloadCertificate');
+// const downloadLesson = require('./src/routes/downloadLesson');
+// const downloadCourse = require('./src/routes/downloadCourse');
+// const katex = require('./src/routes/katex');
+// const sendEmail = require('./src/routes/sendEmail');
+const files = require('./src/routes/files');
 
 // sentry.init({
 //   dsn: process.env.SENTRY_DNS || '',
@@ -42,12 +43,13 @@ app.use(limiter);
 // app.use(sentry.Handlers.errorHandler());
 
 // Register routes
-app.use('/downloadCertificate', downloadCertificate);
-app.use('/downloadLesson', downloadLesson);
-app.use('/downloadCourse', downloadCourse);
-app.use('/uploadVideo', uploadVideo);
-app.use('/katex', katex);
-app.use('/sendEmail', sendEmail);
+// app.use('/downloadCertificate', downloadCertificate);
+// app.use('/downloadLesson', downloadLesson);
+// app.use('/downloadCourse', downloadCourse);
+// app.use('/uploadVideo', uploadVideo);
+// app.use('/katex', katex);
+// app.use('/sendEmail', sendEmail);
+app.use('/files', files);
 
 app.get('/', (req, res) => {
   res.send('Welcome to ClassroomIO');

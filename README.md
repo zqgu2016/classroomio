@@ -192,15 +192,28 @@ To get the environmental variables for supabase continue to step(5)
 
     To learn more about how to login with a dummy account, [go here.](https://classroomio.com/docs/contributor-guides/demo-accounts)
 
+##
+
+```
+# Nodejs
+nvm use 18
+NODE_OPTIONS="--max-old-space-size=4096" npm run build
+```
+
 ## Jupyter Notebook Setup
 
 ```
+# 修改权限
+sudo chown -R 1000:100 apps/backend/uploads/ipynb
+sudo chown -R 1000:100 apps/backend/uploads/ppt
+sudo find apps/backend/uploads/ipynb -type d -exec chmod 755 {} \;
+sudo find apps/backend/uploads/ipynb -type f -exec chmod 644 {} \;
+sudo find apps/backend/uploads/ppt -type d -exec chmod 755 {} \;
+sudo find apps/backend/uploads/ppt -type f -exec chmod 644 {} \;
+
 # 启动
 docker-compose up -d
+docker compose up -d
 # 关闭
 docker stop classroomio-jupyter-1 && docker rm classroomio-jupyter-1
-# 修改权限
-sudo chown -R 1000:100 apps/dashboard/uploads/ipynb
-sudo find apps/dashboard/uploads/ipynb -type d -exec chmod 755 {} \;
-sudo find apps/dashboard/uploads/ipynb -type f -exec chmod 644 {} \;
 ```

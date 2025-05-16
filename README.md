@@ -197,7 +197,11 @@ To get the environmental variables for supabase continue to step(5)
 ```
 # Nodejs
 nvm use 18
+cd apps/backend
+nohup npm start &
+cd apps/dashboard
 NODE_OPTIONS="--max-old-space-size=4096" npm run build
+nohup npm run preview &
 ```
 
 ## Jupyter Notebook Setup

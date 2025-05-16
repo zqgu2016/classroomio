@@ -4,7 +4,7 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - ./apps/dashboard/uploads/ipynb:/home/jovyan/work
+      - ./apps/backend/uploads/ipynb:/home/jovyan/work
     environment:
       - JUPYTER_TOKEN=123456
     command: >

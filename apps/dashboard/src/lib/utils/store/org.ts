@@ -44,6 +44,7 @@ export const currentOrgPath = derived(currentOrg, ($currentOrg) =>
 );
 
 export const currentOrgDomain = derived(currentOrg, ($currentOrg) => {
+  return window.location.origin;
   const browserOrigin = dev && browser && window.location.origin;
   return browserOrigin
     ? browserOrigin

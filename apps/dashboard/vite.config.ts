@@ -16,7 +16,7 @@ export default ({ mode }) => {
     plugins: [sveltekit()],
     server: getServer(process.env),
     build: {
-      sourcemap: true
+      sourcemap: false
     },
     optimizeDeps: {
       entries: ['src/routes/**/+*.{js,ts,svelte}']

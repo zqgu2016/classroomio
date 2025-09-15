@@ -51,7 +51,7 @@
 </script>
 
 <svelte:head>
-  <title>Join RiOS Academy</title>
+  <title>Join OpenAgents Academy</title>
 </svelte:head>
 
 <AuthUI

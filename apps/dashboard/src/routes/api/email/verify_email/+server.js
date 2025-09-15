@@ -21,12 +21,12 @@ export async function POST({ request }) {
 
   const emailData = [
     {
-      from: `"Best from RiOS Academy" <notify@mail.academy.rios.com.ai>`,
+      from: `"Best from OpenAgents Academy" <notify@mail.openagentsfoundation.org>`,
       to,
       subject: 'Action Required: Confirm your email',
       content: `
   <p><strong>Hi ${fullname} 👋</strong></p>
-  <p>Welcome to RiOS Academy, new friend! In order to get your account ready for usage, we need to verify your email. </p>
+  <p>Welcome to OpenAgents Academy, new friend! In order to get your account ready for usage, we need to verify your email. </p>
   <p>We do this to make sure we don't get fake user emails in our signup. To get the best out of our product, we'll need you to verify your email by clicking the <strong>Verify</strong> button below
   </p>
   <div>

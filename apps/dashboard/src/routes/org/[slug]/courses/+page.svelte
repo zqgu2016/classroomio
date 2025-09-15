@@ -96,7 +96,7 @@
 </script>
 
 <svelte:head>
-  <title>Courses - RiOS Academy</title>
+  <title>Courses - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="w-full md:mx-auto md:max-w-6xl">

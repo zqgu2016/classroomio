@@ -17,7 +17,7 @@
   const areas = [
     {
       title: '访问',
-      description: '快速找到完成工作所需的任何资料。RiOS Academy 提供了一体化平台。'
+      description: '快速找到完成工作所需的任何资料。OpenAgents Academy 提供了一体化平台。'
     },
     {
       title: '分析',
@@ -51,24 +51,24 @@
 </script>
 
 <svelte:head>
-  <title>RiOS Academy - The rios software</title>
+  <title>OpenAgents Academy - The OpenAgents software</title>
 </svelte:head>
 
 <div class="m-2 flex w-screen flex-col items-center justify-center font-sans sm:m-0 md:h-[93vh]">
   <!--
     <img
       src="/logo-192.png"
-      alt="RiOS Academy logo"
+      alt="OpenAgents Academy logo"
       class="rounded inline-block mx-auto w-20 h-20 sm:w-auto sm:h-auto"
       data-atf="1"
     />
   -->
   <div>
     <h3 class="text-center text-4xl dark:text-white">
-      RiOS<span class="text-primary-700">Academy</span>
+      OpenAgents<span class="text-primary-700">Academy</span>
     </h3>
     <p class="text-center text-lg dark:text-white">
-      The operating system for RiOS Academy of the future 🚀🚀🚀.
+      The operating system for OpenAgents Academy of the future 🚀🚀🚀.
     </p>
   </div>
 

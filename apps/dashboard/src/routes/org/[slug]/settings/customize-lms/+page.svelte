@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Customize LMS - RiOS Academy</title>
+  <title>Customize LMS - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full md:max-w-4xl">

@@ -5,7 +5,7 @@
   import Locked from 'carbon-icons-svelte/lib/Locked.svelte';
 
   function handleClick() {
-    return goto('https://academy.rios.com.ai');
+    return goto('https://academy.openagentsfoundation.org');
   }
 </script>
 

@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Custom domain - RiOS Academy</title>
+  <title>Custom domain - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full md:max-w-4xl">

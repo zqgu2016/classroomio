@@ -65,7 +65,7 @@
 </script>
 
 <svelte:head>
-  <title>{$course.title || 'RiOS Academy Course'}</title>
+  <title>{$course.title || 'OpenAgents Academy Course'}</title>
 </svelte:head>
 
 {#if isFetching}

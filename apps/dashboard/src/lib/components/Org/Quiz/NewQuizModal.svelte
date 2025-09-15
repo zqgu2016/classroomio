@@ -98,7 +98,7 @@
 </script>
 
 <svelte:head>
-  <title>{$t('components.quiz.title')} - RiOS Academy</title>
+  <title>{$t('components.quiz.title')} - OpenAgents Academy</title>
 </svelte:head>
 
 <Modal

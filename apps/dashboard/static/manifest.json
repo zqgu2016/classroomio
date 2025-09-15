@@ -1,8 +1,8 @@
 {
   "background_color": "#ffffff",
   "theme_color": "#333333",
-  "name": "RiOS Academy",
-  "short_name": "RiOS Academy",
+  "name": "OpenAgents Academy",
+  "short_name": "OpenAgents Academy",
   "display": "minimal-ui",
   "start_url": "/",
   "icons": [

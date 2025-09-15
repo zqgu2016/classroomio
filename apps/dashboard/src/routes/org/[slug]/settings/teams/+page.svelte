@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-  <title>Teams - RiOS Academy</title>
+  <title>Teams - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full md:max-w-4xl">

@@ -34,7 +34,7 @@ export async function POST({ request }) {
 
   const emailData = [
     {
-      from: `"${orgName} - RiOS Academy" <notify@mail.academy.rios.com.ai>`,
+      from: `"${orgName} - OpenAgents Academy" <notify@mail.openagentsfoundation.org>`,
       to,
       replyTo: teacherEmail,
       subject: `[${courseName}] One more step left`,

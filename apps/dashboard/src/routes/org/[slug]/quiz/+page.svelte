@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-  <title>Interactive Quizzes - RiOS Academy</title>
+  <title>Interactive Quizzes - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full max-w-6xl">

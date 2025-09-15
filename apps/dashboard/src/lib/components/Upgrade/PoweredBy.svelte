@@ -7,7 +7,7 @@
 
 {#if $isFreePlan}
   <a
-    href={`https://academy.rios.com.ai?utm_source=${$currentOrg.siteName}.academy.rios.com.ai`}
+    href={`https://academy.openagentsfoundation.org?utm_source=${$currentOrg.siteName}.academy.openagentsfoundation.org`}
     target="_blank"
     class="group fixed bottom-14 right-9 z-50 hover:no-underline"
   >
@@ -21,7 +21,7 @@
         size={16}
       />
       <img src="/logo-192.png" alt="logo" class="h-[24px] opacity-100 group-hover:opacity-0" />
-      {$t('course.navItem.landing_page.powered_by')} RiOS Academy
+      {$t('course.navItem.landing_page.powered_by')} OpenAgents Academy
     </span>
   </a>
 {/if}

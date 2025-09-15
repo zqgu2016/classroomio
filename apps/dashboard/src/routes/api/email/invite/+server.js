@@ -28,12 +28,12 @@ export async function POST({ request }) {
 
   const emailData = [
     {
-      from: `"Best from RiOS Academy" <notify@mail.academy.rios.com.ai>`,
+      from: `"Best from OpenAgents Academy" <notify@mail.openagentsfoundation.org>`,
       to: email,
-      subject: `Join ${name} on RiOS Academy 😃`,
+      subject: `Join ${name} on OpenAgents Academy 😃`,
       content: `
     <p>Hey there,</p>
-      <p> You have been invited to join ${name} on RiOS Academy 🎉🎉🎉.</p>
+      <p> You have been invited to join ${name} on OpenAgents Academy 🎉🎉🎉.</p>
       <div>
         <a class="button" href="${inviteLink}">Accept Invitation</a>
       </div>

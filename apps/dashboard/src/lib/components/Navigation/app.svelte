@@ -83,7 +83,7 @@
         id="logo"
         class="line-clamp-1 text-lg"
       >
-        {isCoursePage ? title : 'RiOS Academy'}
+        {isCoursePage ? title : 'OpenAgents Academy'}
       </a>
     </div>
 

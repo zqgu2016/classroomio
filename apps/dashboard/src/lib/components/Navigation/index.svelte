@@ -27,13 +27,13 @@
     <div class="logo">
       <a
         href="/"
-        title={`${$t('navigation.goto')} ${orgName || 'RiOS Academy'} ${$t('navigation.home')}`}
+        title={`${$t('navigation.goto')} ${orgName || 'OpenAgents Academy'} ${$t('navigation.home')}`}
         id="logo"
         data-hveid="8"
       >
         <img
           src={logo || '/logo-192.png'}
-          alt={`${orgName || 'RiOS Academy'} logo`}
+          alt={`${orgName || 'OpenAgents Academy'} logo`}
           class="mx-auto inline-block w-9 rounded"
           data-atf="1"
         />

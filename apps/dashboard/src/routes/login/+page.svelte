@@ -52,7 +52,7 @@
 </script>
 
 <svelte:head>
-  <title>Welcome back to {$currentOrg.name || 'RiOS Academy'}</title>
+  <title>Welcome back to {$currentOrg.name || 'OpenAgents Academy'}</title>
 </svelte:head>
 
 <AuthUI {supabase} isLogin={true} {handleSubmit} isLoading={loading} bind:formRef>

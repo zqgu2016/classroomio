@@ -43,7 +43,7 @@
 </script>
 
 <svelte:head>
-  <title>Reset Password - RiOS Academy</title>
+  <title>Reset Password - OpenAgents Academy</title>
 </svelte:head>
 
 <AuthUI {supabase} {handleSubmit} showOnlyContent={true} showLogo={!success}>

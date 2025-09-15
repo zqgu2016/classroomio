@@ -85,7 +85,7 @@ export const load = async ({ url, cookies, request }): Promise<LoadOutput> => {
     console.log('custom domain response.org', response.org);
 
     if (!response.org) {
-      throw redirect(307, 'https://app.academy.rios.com.ai/404?type=org');
+      throw redirect(307, 'https://app.academy.openagentsfoundation.org/404?type=org');
     }
 
     response.isOrgSite = true;
@@ -106,7 +106,7 @@ export const load = async ({ url, cookies, request }): Promise<LoadOutput> => {
     response.org = (await getCurrentOrg(response.orgSiteName, true)) || null;
 
     if (!response.org && !isDev) {
-      throw redirect(307, 'https://app.academy.rios.com.ai/404?type=org');
+      throw redirect(307, 'https://app.academy.openagentsfoundation.org/404?type=org');
     } else if (!response.org && _orgSiteName) {
       cookies.delete('_orgSiteName', { path: '/' });
     }
@@ -114,7 +114,7 @@ export const load = async ({ url, cookies, request }): Promise<LoadOutput> => {
     response.skipAuth = true;
   } else if (!APP_SUBDOMAINS.includes(subdomain) && !isDev) {
     // This case is for anything in our blockedSubdomains
-    throw redirect(307, 'https://app.academy.rios.com.ai');
+    throw redirect(307, 'https://app.academy.openagentsfoundation.org');
   }
 
   return response;
@@ -127,7 +127,7 @@ function isURLCustomDomain(url: URL) {
 
   const notCustomDomainHosts = [
     env.PRIVATE_APP_HOST || '',
-    'academy.rios.com.ai',
+    'academy.openagentsfoundation.org',
     'vercel.app'
   ].filter(Boolean);
 
@@ -136,7 +136,7 @@ function isURLCustomDomain(url: URL) {
 
 function getBaseMetaTags(url: URL) {
   return Object.freeze({
-    title: 'RiOS Academy | The Open Source Learning Management System for Companies',
+    title: 'OpenAgents Academy | The Open Source Learning Management System for Companies',
     description:
       'A flexible, user-friendly platform for creating, managing, and delivering courses for companies and training organisations',
     canonical: new URL(url.pathname, url.origin).href,
@@ -144,14 +144,14 @@ function getBaseMetaTags(url: URL) {
       type: 'website',
       url: new URL(url.pathname, url.origin).href,
       locale: 'en_IE',
-      title: 'RiOS Academy | The Open Source Learning Management System for Companies',
+      title: 'OpenAgents Academy | The Open Source Learning Management System for Companies',
       description:
         'A flexible, user-friendly platform for creating, managing, and delivering courses for companies and training organisations',
-      siteName: 'RiOS Academy',
+      siteName: 'OpenAgents Academy',
       images: [
         {
           url: 'https://brand.cdn.clsrio.com/og/classroomio-og.png',
-          alt: 'RiOS Academy OG Image',
+          alt: 'OpenAgents Academy OG Image',
           width: 1920,
           height: 1080,
           secureUrl: 'https://brand.cdn.clsrio.com/og/classroomio-og.png',
@@ -163,11 +163,11 @@ function getBaseMetaTags(url: URL) {
       handle: '@classroomio',
       site: '@classroomio',
       cardType: 'summary_large_image' as const,
-      title: 'RiOS Academy | The Open Source Learning Management System for Companies',
+      title: 'OpenAgents Academy | The Open Source Learning Management System for Companies',
       description:
         'A flexible, user-friendly platform for creating, managing, and delivering courses for companies and training organisations',
       image: 'https://brand.cdn.clsrio.com/og/classroomio-og.png',
-      imageAlt: 'RiOS Academy OG Image'
+      imageAlt: 'OpenAgents Academy OG Image'
     }
   });
 }

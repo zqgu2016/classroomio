@@ -35,7 +35,7 @@
   <div slot="body" class="w-full rounded-md bg-white px-5 py-7 dark:bg-neutral-800">
     <div class="mb-3">
       <p>1. Visit</p>
-      <h3>play.academy.rios.com.ai</h3>
+      <h3>play.academy.openagentsfoundation.org</h3>
     </div>
     <div class="">
       <p>2. Enter Pin</p>

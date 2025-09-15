@@ -10,7 +10,7 @@
       return goto('/');
     }
 
-    return goto('https://academy.rios.com.ai');
+    return goto('https://academy.openagentsfoundation.org');
   }
 </script>
 

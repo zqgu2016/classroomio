@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Settings - RiOS Academy</title>
+  <title>Settings - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full md:max-w-4xl">

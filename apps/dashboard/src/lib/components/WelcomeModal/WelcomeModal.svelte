@@ -35,8 +35,8 @@
   <p class="text-sm text-black dark:text-white md:text-base lg:text-lg">
     {$t('welcome_modal.we_at')}
     <a
-      href="https://app.academy.rios.com.ai/"
-      class="text-primary-700 no-underline hover:no-underline">RiOS Academy</a
+      href="https://app.academy.openagentsfoundation.org/"
+      class="text-primary-700 no-underline hover:no-underline">OpenAgents Academy</a
     >
     {$t('welcome_modal.small_team')}
     <span class="text-primary-700">{$t('welcome_modal.thank_you')};</span>

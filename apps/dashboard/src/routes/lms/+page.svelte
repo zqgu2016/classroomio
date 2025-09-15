@@ -48,7 +48,7 @@
 </script>
 
 <svelte:head>
-  <title>Student Dashboard - RiOS Academy</title>
+  <title>Student Dashboard - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto max-w-6xl gap-5">

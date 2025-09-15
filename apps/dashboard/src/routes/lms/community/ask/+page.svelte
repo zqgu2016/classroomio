@@ -78,7 +78,7 @@
 </script>
 
 <svelte:head>
-  <title>Ask the Community - RiOS Academy</title>
+  <title>Ask the Community - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full max-w-3xl">

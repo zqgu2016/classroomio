@@ -46,7 +46,7 @@
 
   onMount(() => {
     console.log(
-      'Welcome to RiOS Academy, we are grateful you chose us.',
+      'Welcome to OpenAgents Academy, we are grateful you chose us.',
       $page.url.host,
       `\nIs student domain: ${data.isOrgSite}`
     );

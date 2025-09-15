@@ -125,7 +125,7 @@
     <!-- Org Site Name -->
     <TextField
       label={$t('add_org.org_sitename')}
-      helperMessage={`https://${siteName || ''}.academy.rios.com.ai`}
+      helperMessage={`https://${siteName || ''}.academy.openagentsfoundation.org`}
       bind:value={siteName}
       name="sitename"
       type="text"

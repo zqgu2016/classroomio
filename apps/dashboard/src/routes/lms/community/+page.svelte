@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-  <title>Community - RiOS Academy</title>
+  <title>Community - OpenAgents Academy</title>
 </svelte:head>
 
 <section class="mx-auto w-full max-w-4xl">

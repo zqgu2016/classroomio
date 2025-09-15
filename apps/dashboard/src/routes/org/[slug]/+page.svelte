@@ -89,7 +89,7 @@
 </script>
 
 <svelte:head>
-  <title>Dashboard - RiOS Academy</title>
+  <title>Dashboard - OpenAgents Academy</title>
 </svelte:head>
 
 <WelcomeModal />

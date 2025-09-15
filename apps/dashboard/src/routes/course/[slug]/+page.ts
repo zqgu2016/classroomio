@@ -27,13 +27,13 @@ export const load = async ({ params = { slug: '' } }) => {
       ]
     },
     twitter: {
-      handle: '@academy.rios.com.ai',
-      site: '@academy.rios.com.ai',
+      handle: '@academy.openagentsfoundation.org',
+      site: '@academy.openagentsfoundation.org',
       cardType: 'summary_large_image' as const,
       title: data?.title,
       description: data?.description,
       image: data?.logo,
-      imageAlt: 'RiOS Academy OG Image'
+      imageAlt: 'OpenAgents Academy OG Image'
     }
   }) satisfies MetaTagsProps;
 

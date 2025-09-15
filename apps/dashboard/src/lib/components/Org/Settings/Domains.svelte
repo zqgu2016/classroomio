@@ -89,7 +89,7 @@
       return;
     }
 
-    if (sanitizedDomain.includes('rios')) {
+    if (sanitizedDomain.includes('openagents')) {
       errors.customDomain = $t('components.settings.domains.custom_domain_not_classroomio');
       return;
     }
@@ -224,7 +224,7 @@
         <!-- Org Site Name -->
         <TextField
           label="URL"
-          helperMessage={`https://${siteName || ''}.academy.rios.com.ai`}
+          helperMessage={`https://${siteName || ''}.academy.openagentsfoundation.org`}
           bind:value={siteName}
           type="text"
           placeholder="e.g traversymedia"

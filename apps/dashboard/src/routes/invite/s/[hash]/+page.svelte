@@ -125,7 +125,7 @@
 </script>
 
 <svelte:head>
-  <title>Join {data.name} on RiOS Academy</title>
+  <title>Join {data.name} on OpenAgents Academy</title>
 </svelte:head>
 
 <AuthUI

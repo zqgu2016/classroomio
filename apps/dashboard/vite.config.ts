@@ -23,6 +23,9 @@ export default ({ mode }) => {
     },
     resolve: {
       mainFields: ['browser']
+    },
+    preview: {
+      allowedHosts: ['academy.openagentsfoundation.org'],
     }
   });
 };
